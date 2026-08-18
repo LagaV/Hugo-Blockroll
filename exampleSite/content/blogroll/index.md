@@ -8,4 +8,4 @@ Recommended sites from <a class="p-name u-url" href="/">the example site</a>.
 
 **OPML:** [https://example.org/blogroll.opml](https://example.org/blogroll.opml)
 
-{{< blockroll >}}
+{{< blogroll >}}

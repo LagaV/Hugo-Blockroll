@@ -1,11 +1,11 @@
 baseURL = "https://example.org/"
 locale = "en-US"
-title = "Hugo Blockroll Example"
+title = "Hugo Blogroll Example"
 
 [markup.goldmark.renderer]
 unsafe = true
 
-[params.blockroll]
+[params.blogroll]
 opmlPath = "static/blogroll.opml"
 publicURL = "/blogroll.opml"
 showFavicons = true

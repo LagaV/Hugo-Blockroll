@@ -2,7 +2,7 @@
 
 ## Generic Hugo theme
 
-Call `{{ partial "blockroll/head.html" . }}` before `</head>`. Use `{{< blockroll >}}` on the human-readable page.
+Call `{{ partial "blogroll/head.html" . }}` before `</head>`. Use `{{< blogroll >}}` on the human-readable page.
 
 For RSS, add the Source namespace to the root element:
 
@@ -10,7 +10,7 @@ For RSS, add the Source namespace to the root element:
 <rss version="2.0" xmlns:source="http://source.scripting.com/">
 ```
 
-Then call `{{ partial "blockroll/rss.html" . }}` inside `<channel>`.
+Then call `{{ partial "blogroll/rss.html" . }}` inside `<channel>`.
 
 These two RSS edits are explicit because Hugo has no universal RSS-extension hook shared by every theme.
 
@@ -19,7 +19,7 @@ These two RSS edits are explicit because Hugo has no universal RSS-extension hoo
 In `layouts/partials/extend_head.html`:
 
 ```go-html-template
-{{ partial "blockroll/head.html" . }}
+{{ partial "blogroll/head.html" . }}
 ```
 
 Copy PaperMod's `layouts/_default/rss.xml` into the site-level `layouts/_default/rss.xml`, add the `xmlns:source` declaration, and call the RSS partial inside `<channel>`.
@@ -29,7 +29,7 @@ Copy PaperMod's `layouts/_default/rss.xml` into the site-level `layouts/_default
 Run after every Hugo build:
 
 ```sh
-path/to/Hugo-Blockroll/scripts/publish-well-known.sh path/to/site
+path/to/Hugo-Blogroll/scripts/publish-well-known.sh path/to/site
 ```
 
 This intentionally creates the alias only in `public/`; `static/blogroll.opml` remains the single maintained source.

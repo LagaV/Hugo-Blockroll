@@ -1,4 +1,4 @@
-{{- $cfg := site.Params.blockroll | default dict -}}
+{{- $cfg := site.Params.blogroll | default dict -}}
 {{- $opmlPath := $cfg.opmlPath | default "static/blogroll.opml" -}}
 {{- $showFavicons := true -}}
 {{- $showComments := true -}}
@@ -19,17 +19,17 @@
 {{- with $opml.body.outline }}
   {{- $groups := . -}}
   {{- if not (reflect.IsSlice $groups) }}{{ $groups = slice $groups }}{{ end -}}
-<div class="blockroll">
+<div class="blogroll">
   {{- if $showUpdated }}
     {{- with $opml.head.dateModified | default $opml.head.dateCreated }}
-  <p class="blockroll-updated">Updated: <time datetime="{{ . | time.AsTime | time.Format "2006-01-02T15:04:05Z07:00" }}">{{ . | time.AsTime | time.Format "2006-01-02" }}</time></p>
+  <p class="blogroll-updated">Updated: <time datetime="{{ . | time.AsTime | time.Format "2006-01-02T15:04:05Z07:00" }}">{{ . | time.AsTime | time.Format "2006-01-02" }}</time></p>
     {{- end }}
   {{- end }}
   {{- range $groups }}
     {{- $groupName := index . "-text" | default (index . "text") | default (index . "-title") | default (index . "title") -}}
     {{- $feeds := .outline -}}
     {{- if not $feeds }}{{ $feeds = slice . }}{{ else if not (reflect.IsSlice $feeds) }}{{ $feeds = slice $feeds }}{{ end -}}
-  <section class="blockroll-group">
+  <section class="blogroll-group">
     {{- if .outline }}<h2>{{ $groupName }}</h2>{{ end }}
     <ul class="xoxo blogroll">
       {{- range $feeds }}
@@ -41,17 +41,17 @@
         {{- $logoURL := index . "-blogroll-logo-url" | default (index . "blogroll-logo-url") -}}
       <li>
         {{- if and $showFavicons $logoURL (or (strings.HasPrefix $logoURL "https://") (strings.HasPrefix $logoURL "http://")) }}
-        <img class="blockroll-favicon" src="{{ $logoURL }}" alt="" width="32" height="32" loading="lazy" decoding="async">
+        <img class="blogroll-favicon" src="{{ $logoURL }}" alt="" width="32" height="32" loading="lazy" decoding="async">
         {{- end }}
-        <span class="blockroll-copy">
+        <span class="blogroll-copy">
           <a href="{{ $siteURL }}"{{ if $friendRel }} rel="friend noopener"{{ else }} rel="noopener"{{ end }}>{{ $name }}</a>
           {{- if and $showComments $comment }}
-          <span class="blockroll-comment">{{ $comment }}</span>
+          <span class="blogroll-comment">{{ $comment }}</span>
           {{- else if and $showDescriptions $description }}
-          <span class="blockroll-description">{{ $description }}</span>
+          <span class="blogroll-description">{{ $description }}</span>
           {{- end }}
         </span>
-        <a class="blockroll-feed" href="{{ $feedURL }}" rel="alternate" type="application/rss+xml" aria-label="RSS feed for {{ $name }}">RSS</a>
+        <a class="blogroll-feed" href="{{ $feedURL }}" rel="alternate" type="application/rss+xml" aria-label="RSS feed for {{ $name }}">RSS</a>
       </li>
       {{- end }}
     </ul>
@@ -59,5 +59,5 @@
   {{- end }}
 </div>
 {{- else }}
-<p class="blockroll-error">The blogroll could not be loaded.</p>
+<p class="blogroll-error">The blogroll could not be loaded.</p>
 {{- end }}

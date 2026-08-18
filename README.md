@@ -1,4 +1,4 @@
-# Hugo Blockroll
+# Hugo Blogroll
 
 A reusable Hugo component that turns an extended OPML 2.0 subscription list into a human-readable, semantic blogroll.
 
@@ -23,7 +23,7 @@ Add this repository as a Hugo module or Git submodule. Until its GitHub URL is k
 
 ```toml
 [[module.imports]]
-path = "github.com/LagaV/Hugo-Blockroll"
+path = "github.com/LagaV/Hugo-Blogroll"
 ```
 
 Place the one canonical curator export at:
@@ -39,13 +39,13 @@ Create `content/blogroll/index.md`:
 title: Blogroll
 ---
 
-{{</* blockroll */>}}
+{{</* blogroll */>}}
 ```
 
 Add the discovery and stylesheet partial inside your theme's `<head>`:
 
 ```go-html-template
-{{ partial "blockroll/head.html" . }}
+{{ partial "blogroll/head.html" . }}
 ```
 
 Add the RSS namespace to the root `<rss>` element:
@@ -57,13 +57,13 @@ xmlns:source="http://source.scripting.com/"
 Then add this inside `<channel>`:
 
 ```go-html-template
-{{ partial "blockroll/rss.html" . }}
+{{ partial "blogroll/rss.html" . }}
 ```
 
 After Hugo builds, publish the well-known alias:
 
 ```sh
-./themes/Hugo-Blockroll/scripts/publish-well-known.sh .
+./themes/Hugo-Blogroll/scripts/publish-well-known.sh .
 ```
 
 See [docs/integration.md](docs/integration.md) for PaperMod and generic-theme examples.
@@ -73,7 +73,7 @@ See [docs/integration.md](docs/integration.md) for PaperMod and generic-theme ex
 All options are optional:
 
 ```toml
-[params.blockroll]
+[params.blogroll]
 opmlPath = "static/blogroll.opml"
 publicURL = "/blogroll.opml"
 showFavicons = true
@@ -86,12 +86,12 @@ friendRel = true
 The shortcode accepts the same display options as named arguments; named arguments override site configuration:
 
 ```md
-{{</* blockroll showFavicons=false showComments=true */>}}
+{{</* blogroll showFavicons=false showComments=true */>}}
 ```
 
 ## Extended OPML attributes
 
-Hugo Blockroll preserves and serves the OPML unchanged. Unknown attributes are ignored by normal OPML readers. The renderer understands:
+Hugo Blogroll preserves and serves the OPML unchanged. Unknown attributes are ignored by normal OPML readers. The renderer understands:
 
 - `blogroll-comment` — personal recommendation/comment, preferred over `description`
 - `blogroll-logo-url` — HTTP(S) favicon or logo URL
