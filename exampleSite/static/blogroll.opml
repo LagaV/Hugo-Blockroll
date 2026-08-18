@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Example Blogroll</title>
+    <dateCreated>Tue, 18 Aug 2026 09:15:01 GMT</dateCreated>
+    <dateModified>Tue, 18 Aug 2026 09:15:01 GMT</dateModified>
+  </head>
+  <body>
+    <outline text="Technology" title="Technology">
+      <outline type="rss" text="Example Blog" title="Example Blog" xmlUrl="https://example.com/feed.xml" htmlUrl="https://example.com/" description="An example description." blogroll-comment="A personal recommendation." blogroll-logo-url="https://example.com/favicon.ico" />
+    </outline>
+  </body>
+</opml>

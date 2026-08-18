@@ -1,0 +1,11 @@
+name = "Hugo Blockroll"
+license = "MIT"
+licenselink = "https://github.com/LagaV/Hugo-Blockroll/blob/main/LICENSE"
+description = "Render and advertise an extended OPML 2.0 blogroll in Hugo."
+homepage = "https://github.com/LagaV/Hugo-Blockroll"
+tags = ["blogroll", "blockroll", "opml", "rss", "microformats", "xfn"]
+features = ["OPML 2.0", "RSS discovery", "favicons", "comments", "XOXO"]
+min_version = "0.149.0"
+
+[author]
+  name = "LagaV"

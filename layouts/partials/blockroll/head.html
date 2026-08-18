@@ -1,0 +1,5 @@
+{{- $cfg := site.Params.blockroll | default dict -}}
+{{- $publicURL := $cfg.publicURL | default "/blogroll.opml" -}}
+<link rel="blogroll" type="text/xml" href="{{ $publicURL | absURL }}">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="stylesheet" href="{{ "css/hugo-blockroll.css" | relURL }}">

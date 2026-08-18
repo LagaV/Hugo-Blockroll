@@ -1,0 +1,3 @@
+{{- $cfg := site.Params.blockroll | default dict -}}
+{{- $publicURL := $cfg.publicURL | default "/blogroll.opml" -}}
+<source:blogroll>{{ $publicURL | absURL }}</source:blogroll>

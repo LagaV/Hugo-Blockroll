@@ -1,0 +1,15 @@
+baseURL = "https://example.org/"
+locale = "en-US"
+title = "Hugo Blockroll Example"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params.blockroll]
+opmlPath = "static/blogroll.opml"
+publicURL = "/blogroll.opml"
+showFavicons = true
+showComments = true
+showDescriptions = true
+showUpdated = true
+friendRel = true
