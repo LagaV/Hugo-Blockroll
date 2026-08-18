@@ -2,7 +2,11 @@
 set -euo pipefail
 
 repo_dir="$(cd "$(dirname "$0")/.." && pwd)"
-xmllint --noout "$repo_dir/exampleSite/static/blogroll.opml"
+if command -v xmllint >/dev/null 2>&1; then
+  xmllint --noout "$repo_dir/exampleSite/static/blogroll.opml"
+else
+  python3 -c 'import sys, xml.etree.ElementTree as ET; ET.parse(sys.argv[1])' "$repo_dir/exampleSite/static/blogroll.opml"
+fi
 bash -n "$repo_dir/scripts/publish-well-known.sh"
 
 if command -v hugo >/dev/null 2>&1; then
